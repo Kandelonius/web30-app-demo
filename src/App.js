@@ -14,7 +14,7 @@ function App() {
   }, []);
   return (
     <main>
-      <h1>Create React got stuff</h1>
+      <h1>Dustin hates Web30</h1>
       <h2>
         Deployed with{' '}
         <a
