@@ -15,6 +15,7 @@ Problem Solving Approach
 
 Patterns-
 *Frequency Counter
+   - used to check frequency of an occurance usually O(n)
 *Multiple Pointers
 *Sliding Window
 *Divide and Conquer
