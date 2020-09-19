@@ -14,12 +14,12 @@ function same(arr1, arr2) {
     if (arr1.length != arr2.length) {
         return false;
     } else {
-        for(let i = 0; i < arr1.length; i++) {
+        for (let i = 0; i < arr1.length; i++) {
             numbers[arr1[i]] = Math.pow(arr1[i], 2)
         }
     }
-    for(let i = 0; i < arr1.length; i++) {
-        if(numbers[Math.sqrt(arr2[i])] && !(check[arr2[i]])) {
+    for (let i = 0; i < arr1.length; i++) {
+        if (numbers[Math.sqrt(arr2[i])] && !(check[arr2[i]])) {
             check[arr2[i]] = true
         } else {
             return false;
@@ -89,32 +89,32 @@ console.log("validAnagram")
 
 function validAnagram(word1, word2) {
     // model based on instructor solution for number frequency exercise to practice the concepts.
-    if(word1.length !== word2.length) { // I like having this check before declaring the two objects.
+    if (word1.length !== word2.length) { // I like having this check before declaring the two objects.
         return false;
     }
     let letterFrequency1 = {}
     let letterFrequency2 = {}
-    for(let char of word1) { // I haven't used for of loops in js, very similar to the way python handles it's loops
+    for (let char of word1) { // I haven't used for of loops in js, very similar to the way python handles it's loops
         letterFrequency1[char] = (letterFrequency1[char] || 0) + 1 // setting the value = 0 in case it wasn't previously there or + 1
     }
-    for(let char of word2) {
+    for (let char of word2) {
         letterFrequency2[char] = (letterFrequency2[char] || 0) + 1
     }
-    for(let key in letterFrequency1) {
-        if(!(key in letterFrequency2)) {
+    for (let key in letterFrequency1) {
+        if (!(key in letterFrequency2)) {
             return false;
         }
-        if(letterFrequency1[key] !== letterFrequency2[key]) { // checking if the values match up in the two objects.
+        if (letterFrequency1[key] !== letterFrequency2[key]) { // checking if the values match up in the two objects.
             return false;
         }
     }
     return true;
 }
 
-console.log(validAnagram("",""))
-console.log(validAnagram("aaz","zza"))
-console.log(validAnagram("anagram","nagaram"))
-console.log(validAnagram("gohangasalami","imalasagnahog"))
+console.log(validAnagram("", ""))
+console.log(validAnagram("aaz", "zza"))
+console.log(validAnagram("anagram", "nagaram"))
+console.log(validAnagram("gohangasalami", "imalasagnahog"))
 
 /**
  * instructor solution for anagram problem:
@@ -149,3 +149,80 @@ console.log(validAnagram("gohangasalami","imalasagnahog"))
 // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
 validAnagram('anagrams', 'nagaramm')
  */
+
+ // wow I really don't like this solution. I probably should have used arrays. I look forward to seing the instructor solution.
+console.log("sameFrequency")
+
+function sameFrequency(num1, num2) {
+    // console.log("num 1 " + num1 + " num 2 " + num2);
+    // if (num1.length !== num2.length) {
+    //     return false;
+    // }
+    // numObj2 = {};
+    // first put the numbers into their own hashmaps
+    let numObj1 = loadObject(num1);
+    let numObj2 = loadObject(num2);
+    // loadObject(num2, numObj2);
+    if (Object.keys(numObj1).length != Object.keys(numObj2).length) {
+        return false;
+    }
+    let check1 = checkNumbers(numObj1, numObj2, num1);
+    let check2 = checkNumbers(numObj1, numObj2, num2);
+    if (check1 === true && check2 === true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function loadObject(num) {
+    // console.log("in load with " + num);
+    // create an object to return and our while loop
+    let obj = {};
+    /*
+    while the number is a whole number greater than or equal to 1 we need to break it down and load
+    the ones digit into the object. Once the number is less than 10 we will load that number in or increment
+    it and return our object.
+    */
+    while (num >= 0) {
+        if (num < 10) {
+            if (obj[num]) {
+                obj[num] += 1;
+                // console.log("obj is " + obj[2]);
+                return obj;
+            } else {
+                obj[num] = 1;
+                // console.log("obj is " + obj[2]);
+                return obj;
+            }
+        }
+        // if the ones digit is in the object, increment it. Otherwise add it with a value of 1.
+        let temp = (num % 10);
+        // console.log("temp is " + temp + " num is " + num);
+        if (obj[temp]) {
+            obj[temp] += 1;
+        } else {
+            obj[temp] = 1;
+        }
+        // divide by 10 everytime
+        num = Math.floor(num / 10);
+    }
+    // console.log("obj is at the end " + obj);
+    return obj;
+}
+
+function checkNumbers(obj1, obj2, num) {
+    while (num > 0) {
+        let temp = (num % 10);
+        if (obj1[temp] !== obj2[temp]) {
+            return false;
+        }
+        num = Math.floor(num / 10);
+    }
+    return true;
+}
+
+console.log(sameFrequency(182, 281));
+console.log(sameFrequency(341, 14));
+console.log(sameFrequency(3598578, 5879385));
+console.log(sameFrequency(22, 222));
