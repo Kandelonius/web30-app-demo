@@ -151,18 +151,13 @@ validAnagram('anagrams', 'nagaramm')
  */
 
  // wow I really don't like this solution. I probably should have used arrays. I look forward to seing the instructor solution.
+ // checks that two given numbers have the same frequency of a given single digit in each number.
 console.log("sameFrequency")
 
 function sameFrequency(num1, num2) {
-    // console.log("num 1 " + num1 + " num 2 " + num2);
-    // if (num1.length !== num2.length) {
-    //     return false;
-    // }
-    // numObj2 = {};
     // first put the numbers into their own hashmaps
     let numObj1 = loadObject(num1);
     let numObj2 = loadObject(num2);
-    // loadObject(num2, numObj2);
     if (Object.keys(numObj1).length != Object.keys(numObj2).length) {
         return false;
     }
@@ -176,7 +171,6 @@ function sameFrequency(num1, num2) {
 }
 
 function loadObject(num) {
-    // console.log("in load with " + num);
     // create an object to return and our while loop
     let obj = {};
     /*
@@ -188,17 +182,14 @@ function loadObject(num) {
         if (num < 10) {
             if (obj[num]) {
                 obj[num] += 1;
-                // console.log("obj is " + obj[2]);
                 return obj;
             } else {
                 obj[num] = 1;
-                // console.log("obj is " + obj[2]);
                 return obj;
             }
         }
         // if the ones digit is in the object, increment it. Otherwise add it with a value of 1.
         let temp = (num % 10);
-        // console.log("temp is " + temp + " num is " + num);
         if (obj[temp]) {
             obj[temp] += 1;
         } else {
@@ -207,7 +198,6 @@ function loadObject(num) {
         // divide by 10 everytime
         num = Math.floor(num / 10);
     }
-    // console.log("obj is at the end " + obj);
     return obj;
 }
 
