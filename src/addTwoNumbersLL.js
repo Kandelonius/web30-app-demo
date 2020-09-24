@@ -20,8 +20,8 @@ var addTwoNumbers = function(l1, l2) {
     let val2 = 0;
     let num3 = 0;
     do {
-        val1 += (l1 !== null) ? (l1.val * 10) : 0;
-        val2 += (l2 !== null) ? (l2.val * 10) : 0;
+        val1 += (l1 !== null) ? (l1.val) : 0;
+        val2 += (l2 !== null) ? (l2.val) : 0;
         if(l1 === null || l1.next === null) {
             l1 = null;
         } else {
@@ -36,8 +36,8 @@ var addTwoNumbers = function(l1, l2) {
         }
     } while (l1 !== null || l2 !== null);
     console.log("nums before whole " + val1 + " " + val2);
-    val1 = annoyingJS(val1);
-    val2 = annoyingJS(val2);
+    // val1 = annoyingJS(val1);
+    // val2 = annoyingJS(val2);
     val1 = wholeNumber(val1);
     val2 = wholeNumber(val2);
     console.log("nums after whole " + val1 + " " + val2);
@@ -60,20 +60,12 @@ var addTwoNumbers = function(l1, l2) {
 
 var wholeNumber = function(num) {
     while(num % 1 !== 0) {
-        let temp = num * 10;
+        let temp = num * 10.0;
         console.log("fff " + temp);
         num = temp;
     }
     return num;
 };
-
-var annoyingJS = function(num) {
-    if(num % 10 === 0 && num % 1 === 0) {
-        return num /= 10; 
-    } else {
-        return num;
-    }
-}
 
 // let num = 13245;
 // let other = 0;

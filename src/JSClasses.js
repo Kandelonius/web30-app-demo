@@ -52,3 +52,5 @@ console.log(firstStudent.scores);
 console.log(firstStudent.calculateAverage());
 
 console.log(Student.EnrollStudents());
+
+// console.log(9.98 * 10);
