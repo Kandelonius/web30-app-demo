@@ -1,11 +1,28 @@
-
+#displayBorder {
+    width: 15%;
+    margin: 0 auto;
+    background-color: rgb(10, 200, 10);
+    text-align: right;
+}
+.result {
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgb(145, 145, 145);
+    text-align: right;
+    padding: 0 3%;
+}
+#keyBorder {
+    width: 15%;
+    margin: 0 auto;
+    background-color: aqua;
+}
 body button {
     padding: 10px;
+    margin: 1.2%;
     border: none;
     border-radius: 50px;
     letter-spacing: 1px;
     font-weight: bolder;
     text-transform: uppercase;
-    color: slategray;
     background-color: brown;
 }

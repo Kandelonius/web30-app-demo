@@ -12,7 +12,9 @@ function Calculator() {
 
     return (<div>
 
-        <Display />
+        <div id="displayBorder">
+            <Display />
+        </div>
         <div id="keyBorder">
             <div id="firstRow">
                 <Keys keyValue={7} onClick={handleOperation} />
@@ -39,7 +41,7 @@ function Calculator() {
                 <Keys keyValue={"."} onClick={handleOperation} />
             </div>
             <div>
-                <Keys keyValue={"C"} onClick={handleOperation} />
+                <Keys keyValue={"c"} onClick={handleOperation} />
                 <Keys keyValue={"="} onClick={handleOperation} />
             </div>
         </div>

@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 function Display() {
 
+    const [nextValue, setNextValue] = useState("0");
+
     return (
-        <div>80085</div>
+        <div id="displayInner" className="result" type="text">
+            {nextValue}
+        </div>
     )
 }
 
