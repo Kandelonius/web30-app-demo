@@ -1,0 +1,11 @@
+
+body button {
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: slategray;
+    background-color: brown;
+}

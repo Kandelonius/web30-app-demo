@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import HighScore from './HighScore'
+import HighScore from './HighScore';
+import './css/Styles.css';
+import Calculator from './calculatorComponents/Calculator';
 
 class Application extends Component {
     constructor(props) {
@@ -42,10 +44,11 @@ class Application extends Component {
                 overTen={this.state.overTen}
                 onReset={this.resetCount}
             />
-
             <span>
                 <button onClick={(e) => this.handleClick()}>Click Me</button>
             </span>
+
+            <Calculator />
         </div>)
     }
 
