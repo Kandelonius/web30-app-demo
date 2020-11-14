@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function Display() {
+function Display(props) {
 
     const [nextValue, setNextValue] = useState("0");
 

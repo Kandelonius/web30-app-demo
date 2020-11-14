@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import HighScore from './HighScore';
 import './css/Styles.css';
 import Calculator from './calculatorComponents/Calculator';
+import Calculator2 from './calculatorComponents/Calculator2';
 
 class Application extends Component {
     constructor(props) {
@@ -48,7 +49,8 @@ class Application extends Component {
                 <button onClick={(e) => this.handleClick()}>Click Me</button>
             </span>
 
-            <Calculator />
+            {/* <Calculator /> */}
+            <Calculator2 />
         </div>)
     }
 
