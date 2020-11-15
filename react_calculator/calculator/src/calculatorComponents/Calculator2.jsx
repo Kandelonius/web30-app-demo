@@ -17,6 +17,7 @@ class Calculator2 extends Component {
 
     addToCurrent = (symbol) => {
         this.setState ({current: this.state.current + symbol});
+        console.log(symbol);
     }
 
     render() {
@@ -42,9 +43,9 @@ class Calculator2 extends Component {
         return (
             <div classname="Calculator2">
                 <input className="result" type="text" value={this.state.current} />
-
+                <br />
                 {buttons.map((btn, i) => {
-                    return <Button symbol={btn.symbol} cols={btn.cols} action={(symbol) => btn.action} />
+                    return <Button key={i} symbol={btn.symbol} cols={btn.cols} action={(symbol) => btn.action(symbol)} />
                 })}
             </div>
         )
