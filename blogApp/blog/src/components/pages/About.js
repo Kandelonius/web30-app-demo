@@ -9,11 +9,9 @@ class About extends Component {
             <div>
                 <div>
                 <Header
-                    title="Welcome to our Studio!"
-                    subtitle="IT'S NICE TO MEET YOU"
-                    buttonText="tell me more"
-                    link="/services"
-                    showButton={true}
+                    title="About Us"
+                    subtitle="A Tale for the ages"
+                    showButton={false}
                     image={image}
                 />
             </div>
