@@ -1,4 +1,19 @@
 import React, { Component } from 'react';
+import Field from '../common/Field';
+
+const fields = {
+    sections: [
+        [
+            { name: 'name', elementName: 'input', type: 'text', placeholder: 'Your name *' },
+            { name: 'email', elementName: 'input', type: 'email', placeholder: 'Your email *' },
+            { name: 'phone', elementName: 'input', type: 'text', placeholder: 'Your phone number *' }
+
+        ],
+        [
+            { name: 'message', elementName: 'input', type: 'text', placeholder: 'Type your message *' }
+        ]
+    ]
+}
 
 class Contact extends Component {
     constructor(props) {
@@ -71,7 +86,7 @@ class Contact extends Component {
                                             required="required"
                                             data-validation-required-message="Please enter a message."
                                             value={this.state.message}
-                                            onChange={e => this.setState({message: e.target.value})}
+                                            onChange={e => this.setState({ message: e.target.value })}
                                         />
                                         <p className="help-block text-danger"></p>
                                     </div>
