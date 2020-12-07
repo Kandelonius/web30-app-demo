@@ -86,7 +86,10 @@ export default withFormik({
     validationSchema: Yup.object().shape({
         name: Yup.string().min(3, "Name too short").required("You must give a name."),
         email: Yup.string().email("You must give a email.").required("You must give a email."),
-        phone: Yup.string().required("You must give a phone.")
+        phone: Yup.string().min(10, "Please give a 10 digit phone number.")
+            .max(15, "Your phone number is too long.").required("You must give a phone number."),
+        message: Yup.string().min(50, "You must provide a message with at least 50 characters.")
+        .required("Message is required.")
     }),
     handleSubmit: (values, { setSubmitting }) => {
         alert("You've submitted the form", JSON.stringify(values));
