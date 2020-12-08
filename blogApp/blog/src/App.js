@@ -19,7 +19,7 @@ function App() {
             component={About}
           />
           <Route path="/contact"
-          component={Contact}
+            component={Contact}
           />
         </Wrapper>
       </Router>

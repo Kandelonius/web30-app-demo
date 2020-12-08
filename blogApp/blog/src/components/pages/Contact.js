@@ -89,7 +89,7 @@ export default withFormik({
         phone: Yup.string().min(10, "Please give a 10 digit phone number.")
             .max(15, "Your phone number is too long.").required("You must give a phone number."),
         message: Yup.string().min(50, "You must provide a message with at least 50 characters.")
-        .required("Message is required.")
+            .required("Message is required.")
     }),
     handleSubmit: (values, { setSubmitting }) => {
         alert("You've submitted the form", JSON.stringify(values));
